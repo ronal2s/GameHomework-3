@@ -32,4 +32,11 @@ public class prueba : MonoBehaviour {
 		rb.AddForce (new Vector2 (10, 0));
 
 	}
+
+	public void reset()
+	{
+		rb.bodyType = RigidbodyType2D.Static;
+		transform.localRotation = new Quaternion (0, 0, 0, 0);
+		transform.localScale = new Vector3 (0.1340f, 0.5862f, 1f);
+	}
 }
