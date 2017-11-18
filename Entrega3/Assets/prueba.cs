@@ -21,15 +21,16 @@ public class prueba : MonoBehaviour {
 
 	public void up()
 	{
-		rb.bodyType = RigidbodyType2D.Dynamic;
-		transform.localScale += new Vector3 (0, 0.1f, 0);
-		transform.localPosition += new Vector3 (0, 0.18f, 0);
+		//rb.bodyType = RigidbodyType2D.Dynamic;
+		transform.localScale += new Vector3 (0, 0.02f, 0);
+		transform.localPosition += new Vector3 (0, 0.033f, 0);
 		//rb.bodyType = RigidbodyType2D.Kinematic;
 	}
 
 	public void down()
 	{
-		rb.AddForce (new Vector2 (10, 0));
+		rb.bodyType = RigidbodyType2D.Dynamic;
+		rb.AddForce (new Vector2 (20, 0));
 
 	}
 
@@ -37,6 +38,6 @@ public class prueba : MonoBehaviour {
 	{
 		rb.bodyType = RigidbodyType2D.Static;
 		transform.localRotation = new Quaternion (0, 0, 0, 0);
-		transform.localScale = new Vector3 (0.1340f, 0.5862f, 1f);
+		transform.localScale = new Vector3 (0.1340f, 0.29f, 1f);
 	}
 }

@@ -7,6 +7,7 @@ public class Jugador : MonoBehaviour {
 	private prueba barraScript;
 	private Global globalScript;
 	private Rigidbody2D rb;
+	private Animator anim;
 	public float velocidadX;
 	public bool movin, salto, suelo;
 	// Use this for initialization
@@ -14,6 +15,7 @@ public class Jugador : MonoBehaviour {
 		barraScript = barra.GetComponent<prueba> ();
 		globalScript = global.GetComponent<Global> ();
 		rb = GetComponent<Rigidbody2D> ();
+		anim = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -40,8 +42,9 @@ public class Jugador : MonoBehaviour {
 
 	void mover()
 	{
-		velocidadX = 3f;
+		velocidadX = 5f;
 		rb.velocity = new Vector2 (velocidadX, rb.velocity.y);
+		anim.SetBool("run", true);
 		globalScript.controlador = Global.ControlJuego.Corriendo;
 
 	}
@@ -50,11 +53,19 @@ public class Jugador : MonoBehaviour {
 	{
 		velocidadX = 0;
 		rb.bodyType = RigidbodyType2D.Static;
+		anim.SetBool("run", false);
+		//Poner la cámara donde el jugador
+		Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + 1, 0, -10f);
+
+		gameObject.transform.position -= new Vector3 (1f, 0);
 		barraScript.reset ();
-		barra.transform.localPosition = new Vector3 (transform.position.x, -1.99f);
-		barra.transform.position = new Vector3 (gameObject.transform.position.x + 1f, barra.transform.position.y);
+		barra.transform.localPosition = new Vector3 (transform.position.x, -2.52f);
+		barra.transform.position = new Vector3 (gameObject.transform.position.x + 0.6f, barra.transform.position.y);
 		globalScript.controlador = Global.ControlJuego.Jugando;
 		rb.bodyType = RigidbodyType2D.Dynamic;
+
+		//Poner la cámara donde el jugador
+		//Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + 1, 0, -10f);
 	}
 	void OnCollisionEnter2D(Collision2D col)
 	{
@@ -64,6 +75,7 @@ public class Jugador : MonoBehaviour {
 		}
 		if (col.gameObject.tag == "suelo" && salto) {
 			salto= false;
+			Global.puntos++;
 			stopMover ();
 		}
 
