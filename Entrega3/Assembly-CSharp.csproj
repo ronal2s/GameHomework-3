@@ -51,15 +51,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CaidaLibre.cs" />
-     <Compile Include="Assets\CameraController.cs" />
-     <Compile Include="Assets\ControlEscudo.cs" />
-     <Compile Include="Assets\ControlJuego.cs" />
-     <Compile Include="Assets\Global.cs" />
-     <Compile Include="Assets\Jugador.cs" />
-     <Compile Include="Assets\Menu.cs" />
-     <Compile Include="Assets\Parallaxing.cs" />
-     <Compile Include="Assets\prueba.cs" />
+     <Compile Include="Assets\Scripts\CaidaLibre.cs" />
+     <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\ControlEscudo.cs" />
+     <Compile Include="Assets\Scripts\ControlJuego.cs" />
+     <Compile Include="Assets\Scripts\Correr.cs" />
+     <Compile Include="Assets\Scripts\Global.cs" />
+     <Compile Include="Assets\Scripts\Jugador.cs" />
+     <Compile Include="Assets\Scripts\Menu.cs" />
+     <Compile Include="Assets\Scripts\Parallaxing.cs" />
+     <Compile Include="Assets\Scripts\prueba.cs" />
      <None Include="Assets\Resources\nivel1.txt" />
      <None Include="Assets\Graphics\Shadow.shader" />
  <Reference Include="UnityEngine.UI">
