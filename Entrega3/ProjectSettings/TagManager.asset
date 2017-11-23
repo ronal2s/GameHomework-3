@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Palo
   - suelo
+  - item
   layers:
   - Default
   - TransparentFX

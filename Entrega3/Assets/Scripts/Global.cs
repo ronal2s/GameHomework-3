@@ -41,15 +41,27 @@ public class Global : MonoBehaviour {
 	IEnumerator meteorito()
 	{
 		while (true) {
-			aux = Instantiate (meteoro);
-			aux.transform.position = new Vector3 (posMeteoro.transform.position.x, posMeteoro.transform.position.y);
-			posMeteoro.transform.position = new Vector3 (Random.Range (-8.55f, Camera.main.transform.position.x + 5), posMeteoro.transform.position.y);
-			yield return new WaitForSeconds (3);
+			if (game) {
+				aux = Instantiate (meteoro);
+				aux.transform.position = new Vector3 (posMeteoro.transform.position.x, posMeteoro.transform.position.y);
+				posMeteoro.transform.position = new Vector3 (Random.Range (-8.55f, Camera.main.transform.position.x + 5), posMeteoro.transform.position.y);
+				yield return new WaitForSeconds (3);
+
+			}
 			if (!game) {
 				aux = Instantiate (meteoro);
 				aux.transform.position = new Vector3 (posMeteoro.transform.position.x, posMeteoro.transform.position.y);
+				posMeteoro.transform.position = new Vector3 (Random.Range (-10f, Camera.main.transform.position.x), posMeteoro.transform.position.y);
+				yield return new WaitForSeconds (1f);
+				aux = Instantiate (meteoro);
+				aux.transform.position = new Vector3 (posMeteoro.transform.position.x, posMeteoro.transform.position.y);
 				posMeteoro.transform.position = new Vector3 (Random.Range (-7f, Camera.main.transform.position.x + 2), posMeteoro.transform.position.y);
-				yield return new WaitForSeconds (1);
+				yield return new WaitForSeconds (1.5f);
+				aux = Instantiate (meteoro);
+				aux.transform.position = new Vector3 (posMeteoro.transform.position.x, posMeteoro.transform.position.y);
+				posMeteoro.transform.position = new Vector3 (Random.Range (-11f, -5f), posMeteoro.transform.position.y);
+				yield return new WaitForSeconds (3.5f);
+
 
 			}
 		}

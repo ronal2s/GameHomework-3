@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour {
 
 	public Text usuario, usuarioMenu;
-	public GameObject cambiarNombre, canvas, fondo;
+	public GameObject cambiarNombre, canvas, fondo, system, particles,logo;
 	// Use this for initialization
 	void Start () {
 		usuario.text = PlayerPrefs.GetString ("Usuario");
@@ -21,7 +21,11 @@ public class Menu : MonoBehaviour {
 		SceneManager.LoadScene ("Game", LoadSceneMode.Additive);
 		SceneManager.SetActiveScene (SceneManager.GetSceneByName ("Game"));
 		canvas.SetActive (false);
+		system.SetActive (false);
 		fondo.SetActive (false);
+		logo.SetActive (false);
+
+		particles.SetActive (false);
 		Destroy (gameObject);
 	}
 

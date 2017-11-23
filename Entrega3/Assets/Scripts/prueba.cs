@@ -26,6 +26,7 @@ public class prueba : MonoBehaviour {
 	{
 		rb.bodyType = RigidbodyType2D.Dynamic;
 		rb.AddForce (new Vector2 (20, 0));
+		//transform.localPosition += new Vector3 (-0.1f, 0, 0);
 
 	}
 
@@ -34,5 +35,12 @@ public class prueba : MonoBehaviour {
 		rb.bodyType = RigidbodyType2D.Static;
 		transform.localRotation = new Quaternion (0, 0, 0, 0);
 		transform.localScale = new Vector3 (0.1340f, 0.29f, 1f);
+	}
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		if (col.gameObject.tag == "item") {
+			Destroy (col.gameObject);
+		}
+
 	}
 }
